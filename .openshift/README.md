@@ -1,3 +1,2 @@
-For information about .openshift directory, consult the documentation:
-
-http://openshift.github.io/documentation/oo_user_guide.html#the-openshift-directory
+This repository will contain the code for the homework
+assignments in CS4550 (Web Development) at Northeastern University.
