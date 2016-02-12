@@ -1,0 +1,42 @@
+html {
+    background-color: #ccffee;
+    width: 100%;
+}
+html body {
+    background-color: #ccffee;
+    margin: 140px;
+}
+html body .content {
+    text-align: center;
+    width: 600px;
+    margin: 0 auto;
+}
+html body .content h1 {
+    font-family: 'Miniver', cursive;
+    font-size: 50px;
+}
+html body .content h4 {
+    font-family: 'Open Sans', sans-serif;
+}
+html body .content .circle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #666666;
+    color: #f0f0f5;
+    height: 145px;
+    width: 145px;
+    margin: 10px 6px;
+}
+html body .content .circle span {
+    position: relative;
+    top: 40%;
+}
+html body .content .circle:hover {
+    cursor: pointer;
+    background-color: #b3b3b3;
+}
+html body .content a {
+    text-decoration: none;
+}
