@@ -1,5 +1,7 @@
 (function(){
-    angular.module("FormBuilderApp").config(Configuration);
+    angular
+        .module("FormBuilderApp")
+        .config(Configuration);
 
     function Configuration($routeProvider) {
         $routeProvider
