@@ -15,29 +15,22 @@
                 <tr>
                     <form class="form-inline">
                         <div class="form-group">
-                            <td><input type="text" class="form-control" id="formsName" placeholder="name"></td>
-                            <td><a href="#" class="glyphicon glyphicon-plus btn"></a><a href="#" class="glyphicon glyphicon-ok btn"></a></td>
+                            <td><input ng-model="form.title" type="text" class="form-control" id="formsName" placeholder="name"></td>
+                            <td>
+                                <a ng-click="addForm(form)" class="glyphicon glyphicon-plus btn"></a>
+                                <a ng-click="updateForm(form)" class="glyphicon glyphicon-ok btn"></a></td>
                         </div>
                     </form>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td><a href="fields.view.html">Registration Form</a></td>
+                <tr ng-repeat="form in forms">
                     <td>
-                        <a href="#" class="glyphicon glyphicon-remove btn"></a><a href="#" class="glyphicon glyphicon-pencil btn"></a>
+                        <a href="#/fields">{{form.title}}</a>
                     </td>
-                </tr>
-                <tr>
-                    <td><a href="fields.view.html">Contact List</a></td>
                     <td>
-                        <a href="#" class="glyphicon glyphicon-remove btn"></a><a href="#" class="glyphicon glyphicon-pencil btn"></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="fields.view.html">To Do List</a></td>
-                    <td>
-                        <a href="#" class="glyphicon glyphicon-remove btn"></a><a href="#" class="glyphicon glyphicon-pencil btn"></a>
+                        <a ng-click="deleteForm(form)" class="glyphicon glyphicon-remove btn"></a>
+                        <a ng-click="selectForm($index)" class="glyphicon glyphicon-pencil btn"></a>
                     </td>
                 </tr>
                 </tbody>
