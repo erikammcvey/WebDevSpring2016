@@ -7,4 +7,4 @@
         $scope.$location = $location;
 
     }
-});
+})();

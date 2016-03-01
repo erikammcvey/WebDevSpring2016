@@ -1,6 +1,6 @@
 (function(){
     angular
-        .module("FormMakerApp")
+        .module("FormBuilderApp")
         .controller("ProfileController", ProfileController);
 
     function ProfileController($location, $scope, $rootScope, UserService) {
@@ -12,4 +12,4 @@
             });
         }
     }
-});
+})();

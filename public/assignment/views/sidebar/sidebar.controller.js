@@ -6,4 +6,4 @@
     function SidebarController($location, $scope) {
 
     }
-});
+})();

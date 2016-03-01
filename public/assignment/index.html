@@ -14,13 +14,20 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!--dashboard css-->
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <!--mobile friendly-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--angular CDNs-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     <!--links to my JS-->
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="services/forms.service.client.js"></script>
+    <script src="services/user.service.client.js"></script>
+
+    <script src="views/main/main.controller.js"></script>
+    <script src=views/sidebar/sidebar.controller.js></script>
     <script src="views/admin/admin.controller.js"></script>
     <script src="views/forms/fields.controller.js"></script>
     <script src="views/forms/forms.controller.js"></script>
@@ -29,23 +36,18 @@
     <script src="views/users/login.controller.js"></script>
     <script src="views/users/profile.controller.js"></script>
     <script src="views/users/register.controller.js"></script>
-    <script src="app.js"></script>
-    <script src="config.js"></script>
 </head>
 
 <body ng-controller="MainController">
+<div ng-include="'views/header/header.view.html'"></div>
 <div class="container pull-left">
-    <div class="row">
-        <div class="col-sm-12">
-            <div ng-include="'views/header/header/view/html'">
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="col-sm-3">
             <div ng-include="'views/sidebar/sidebar.view.html'"></div>
         </div>
-        <div class="col-sm-9"></div>
+        <div class="col-sm-9">
+            <div ng-view class="main"></div>
+        </div>
     </div>
 </div>
 </body>

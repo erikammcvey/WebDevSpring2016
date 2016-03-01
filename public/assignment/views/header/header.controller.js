@@ -6,4 +6,4 @@
     function HeaderController($scope, $location) {
 
     }
-});
+})();
