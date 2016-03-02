@@ -1,22 +1,11 @@
+"use strict";
 (function(){
-    "use strict";
     angular
-        .module("FormMakerApp")
+        .module("FormBuilderApp")
         .factory("UserService", UserService);
 
     function UserService(){
-        var users = [];
-        var services = {
-            users: users,
-            findUserByCredentials: findUserByCredentials,
-            findAllUsers: findAllUsers,
-            createUser: createUser,
-            deleteUserById: deleteUserById,
-            updateUser: updateUser
-        };
-        return services;
-
-        users = [
+        var users = [
             {        "_id":123, "firstName":"Alice",            "lastName":"Wonderland",
                 "username":"alice",  "password":"alice",   "roles": ["student"]                },
             {        "_id":234, "firstName":"Bob",              "lastName":"Hope",
@@ -28,6 +17,15 @@
             {        "_id":567, "firstName":"Edward",           "lastName":"Norton",
                 "username":"ed",     "password":"ed",      "roles": ["student"]                }
         ];
+        var services = {
+            users: users,
+            findUserByCredentials: findUserByCredentials,
+            findAllUsers: findAllUsers,
+            createUser: createUser,
+            deleteUserById: deleteUserById,
+            updateUser: updateUser
+        };
+        return services;
 
         function findUserByCredentials(username, password, callback) {
             for (var u = 0; u < services.users.length; u++) {
@@ -72,4 +70,4 @@
             }
         }
     }
-});
+})();

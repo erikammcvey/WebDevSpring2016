@@ -58,4 +58,4 @@
             callback(newForm);
         }
     }
-});
+})();
