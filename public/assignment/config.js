@@ -17,22 +17,22 @@
             })
             .when("/forms", {
                 templateUrl: "views/forms/forms.view.html",
-                controller: FormsController
+                controller: "FormsController"
             })
             .when("/fields", {
                 templateUrl: "views/forms/fields.view.html"
             })
             .when("/login", {
                 templateUrl: "views/users/login.view.html",
-                controller: LoginController
+                controller: "LoginController"
             })
             .when("/profile", {
                 templateUrl: "views/users/profile.view.html",
-                controller: ProfileController
+                controller: "ProfileController"
             })
             .when("/register", {
                 templateUrl: "views/users/register.view.html",
-                controller: RegisterController
+                controller: "RegisterController"
             });
     }
-});
+})();
