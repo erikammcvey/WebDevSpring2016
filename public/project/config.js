@@ -23,5 +23,9 @@
                 templateUrl: "views/users/register.view.html",
                 controller: "RegisterController"
             })
+            .when("/settings", {
+                templateUrl: "views/users/settings.view.html",
+                controller: "SettingsController"
+            })
     }
 })();
