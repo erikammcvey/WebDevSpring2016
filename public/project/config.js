@@ -5,6 +5,12 @@
         .config(Configuration);
 
     function Configuration($routeProvider) {
-        $routeProvider;
+        $routeProvider
+            .when("/", {
+                templateUrl: "views/home/home.view.html"
+            })
+            .when("/home", {
+                templateUrl: "views/home/home.view.html"
+            })
     }
 })();
