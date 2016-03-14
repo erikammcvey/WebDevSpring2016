@@ -27,5 +27,9 @@
                 templateUrl: "views/users/settings.view.html",
                 controller: "SettingsController"
             })
+            .when("/today", {
+                templateUrl: "views/today/today.view.html",
+                controller: "TodayController"
+            })
     }
 })();
