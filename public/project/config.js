@@ -19,6 +19,12 @@
             .when("/closet", {
                 templateUrl: "views/closet/closet.view.html"
             })
+            .when("/clean", {
+                templateUrl: "views/closet/clean.view.html"
+            })
+            .when("/dirty", {
+                templateUrl: "views/closet/dirty.view.html"
+            })
             .when("/register", {
                 templateUrl: "views/users/register.view.html",
                 controller: "RegisterController"
