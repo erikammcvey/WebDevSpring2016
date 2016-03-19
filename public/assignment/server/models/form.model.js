@@ -16,8 +16,7 @@ module.exports = function(app) {
 
     function createForm(form) {
         form._id = (new Date()).getTime();
-        mock.push(form);
-        return mock;
+        forms.push(form);
     }
 
     function findAllForms() {
