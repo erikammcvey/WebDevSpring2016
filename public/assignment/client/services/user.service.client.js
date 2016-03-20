@@ -4,8 +4,8 @@
         .module("FormBuilderApp")
         .factory("UserService", UserService);
 
-    function UserService($http, $rootScope){
-        var api = {
+    function UserService($http){
+        var services = {
             findUserByCredentials: findUserByCredentials,
             findUserByUsername: findUserByUsername,
             findAllUsers: findAllUsers,
@@ -13,7 +13,7 @@
             deleteUserById: deleteUserById,
             updateUser: updateUser
         };
-        return api;
+        return services;
 
         function findUserByCredentials(username, password) {
             return $http({
