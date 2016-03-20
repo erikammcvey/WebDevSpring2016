@@ -14,8 +14,15 @@ module.exports = function(app) {
     return api;
 
     function createUser(user) {
-        user._id = (new Date()).getTime();
-        users.push(user);
+        var id = (new Date()).getTime();
+        var usrnew = {
+            "_id": id,
+            "username": user.username,
+            "password": user.password,
+            "email": user.email
+        };
+        users.push(usrnew);
+        return usrnew;
     }
 
     function findAllUsers() {
