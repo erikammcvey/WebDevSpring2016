@@ -4,7 +4,7 @@
         .module("FormBuilderApp")
         .factory("UserService", UserService);
 
-    function UserService($http, $rootScope){
+    function UserService($http, $rootScope, $q){
         var services = {
             findUserByCredentials: findUserByCredentials,
             findUserByUsername: findUserByUsername,
@@ -17,58 +17,77 @@
         return services;
 
         function findUserByCredentials(username, password) {
-            return $http({
-                method: 'GET',
-                url: 'api/assignment/user',
-                params: {
-                    username: username,
-                    password: password
-                }
-            });
+            var deferred = $q.defer();
+            $http.get("/api/assignment/user?username="+username+"&password="+password)
+                .then(
+                    function(response) {
+                        deferred.resolve(response.data);
+                    },
+                    function(error) {
+                        deferred.reject(error);
+                    }
+                );
+            return deferred.promise;
         }
 
         function findUserByUsername(username) {
             var deferred = $q.defer();
-            return $http({
-                method: 'GET',
-                url: 'api/assignment/user',
-                params: {username: username}
-            });
+
+            $http.get("/api/assigment/user?username="+username)
+                .then(function(res) {
+                    deferred.resolve(res.data);
+                },
+                function(err) {
+                    deferred.reject(err);
+                });
+            return deferred.promise;
         }
 
         function findAllUsers() {
-            return $http({
-                method: 'GET',
-                url: 'api/assignment/user'
-            });
+            var deferred = $q.defer();
+
+            $http.get('/api/assignment/user')
+                .then(function(res) {
+                    deferred.resolve(res.data);
+                },
+                function(err) {
+                    deferred.reject(err);
+                });
+            return deferred.promise;
         }
 
         function createUser(user) {
-            return $http({
-                method: 'POST',
-                url: 'api/assignment/user',
-                data: user
-            });
+            var deferred = $q.defer();
+
+            $http.post('/api/assignment/user', user)
+                .success(function(res) {
+                    deferred.resolve(res);
+                });
+            return deferred.promise;
         }
 
         function deleteUserById(userId) {
-            return $http({
-                method: 'DELETE',
-                url: 'api/assignment/user',
-                params: {userId: userId}
-            });
+            var deferred = $q.defer();
+
+            $http.delete('/api/assignment/user/'+userId)
+                .success(function(res) {
+                    deferred.resolve(res);
+                });
+            return deferred.promise;
         }
 
-        function updateUser(userId, user, callback) {
-            return $http({
-                method: 'PUT',
-                url: 'api/assignment/user',
-                data: user
-            });
+        function updateUser(userId, user) {
+            var deferred = $q.defer();
+
+            $http.put('/api/assignment/user/'+userId, user)
+                .success(function(res) {
+                    deferred.resolve(res);
+                });
+            return deferred.promise;
         }
 
         function setUser(newUser) {
-            $rootScope.user = newUser;
+            $rootScope.currentUser = newUser;
         }
     }
 })();

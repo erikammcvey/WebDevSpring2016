@@ -40,7 +40,7 @@
         function updateFormById(formId, newForm) {
             return $http({
                 method: 'PUT',
-                url: 'api/assignment/form',
+                url: '/api/assignment/form',
                 params: {formId: formId},
                 data: newForm
             })

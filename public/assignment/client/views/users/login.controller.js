@@ -18,10 +18,10 @@
 
         function login(user){
             UserService
-                .findUserByCredentials(user.username,user.password)
+                .findUserByCredentials(user.username, user.password)
                 .then(
-                    function(doc){
-                        var user = doc;
+                    function(res){
+                        var user = res;
                         if(user){
                             UserService.setUser(user);
                             $location.url("/profile");

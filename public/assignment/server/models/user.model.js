@@ -1,4 +1,4 @@
-var mock = require("./user.mock.json");
+var users = require("./user.mock.json");
 var uuid = require("node-uuid");
 
 module.exports = function(app) {
@@ -13,15 +13,13 @@ module.exports = function(app) {
     };
     return api;
 
-    var users = findAllUsers();
-
     function createUser(user) {
         user._id = (new Date()).getTime();
         users.push(user);
     }
 
     function findAllUsers() {
-        return mock;
+        return users;
     }
 
     function findUserById(userId) {
@@ -33,7 +31,7 @@ module.exports = function(app) {
     }
 
     function updateUser(userId, newUser) {
-        for (var i = 0; i < users.length(); i++) {
+        for (var i = 0; i < users.length; i++) {
             var user = users[i];
             if (user._id === userId) {
                 users[i] = newUser;
