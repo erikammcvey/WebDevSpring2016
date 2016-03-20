@@ -1,3 +1,5 @@
+var model = require("./../models/user.model.js")()
+
 module.exports = function(app, Model) {
 
     app.post('/api/assignment/user', createUser);
@@ -5,8 +7,6 @@ module.exports = function(app, Model) {
     app.delete('/api/assignment/user/:id', deleteUser);
     app.get('/api/assignment/user', getUser);
     app.get('/api/assignment/user/:id', getUserById);
-
-    var model = Model;
 
     function createUser(req, res) {
         res.json(model.createUser(req.body));

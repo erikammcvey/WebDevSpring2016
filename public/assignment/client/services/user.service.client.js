@@ -4,14 +4,15 @@
         .module("FormBuilderApp")
         .factory("UserService", UserService);
 
-    function UserService($http){
+    function UserService($http, $rootScope){
         var services = {
             findUserByCredentials: findUserByCredentials,
             findUserByUsername: findUserByUsername,
             findAllUsers: findAllUsers,
             createUser: createUser,
             deleteUserById: deleteUserById,
-            updateUser: updateUser
+            updateUser: updateUser,
+            setUser: setUser
         };
         return services;
 
@@ -27,6 +28,7 @@
         }
 
         function findUserByUsername(username) {
+            var deferred = $q.defer();
             return $http({
                 method: 'GET',
                 url: 'api/assignment/user',
@@ -63,6 +65,10 @@
                 url: 'api/assignment/user',
                 data: user
             });
+        }
+
+        function setUser(newUser) {
+            $rootScope.user = newUser;
         }
     }
 })();

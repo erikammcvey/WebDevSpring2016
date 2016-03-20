@@ -1,11 +1,11 @@
+var form = require("./../models/form.model.js")();
+
 module.exports = function(app, Model) {
     app.get('/api/assignment/form/:formId/field', getFieldsByFormId);
     app.get('/api/assignment/form/:formId/field/:fieldId', getField);
     app.delete('/api/assignment/form/:formId/field/:fieldId', deleteField);
     app.post('/api/assignment/form/:formId/field', createField);
     app.put('/api/assignment/form/:formId/field/:fieldId', updateField);
-
-    var form = Model;
 
     function createField(req, res) {
         res.json(form.createField(req.params.formId, req.body))
