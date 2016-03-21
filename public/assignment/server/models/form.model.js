@@ -1,10 +1,11 @@
-var mock = require("./form.mock.json");
-var uuid = require("node-uuid");
+var forms = require("./form.mock.json");
+//var uuid = require("node-uuid");
 
 module.exports = function(app) {
     var api = {
         createForm: createForm,
         findAllForms: findAllForms,
+        findFormsByUserId: findFormsByUserId,
         findFormById: findFormById,
         updateForm: updateForm,
         deleteFormById: deleteFormById,
@@ -16,15 +17,24 @@ module.exports = function(app) {
     };
     return api;
 
-    var forms = findAllForms();
-
     function createForm(form) {
         form._id = (new Date()).getTime();
         forms.push(form);
     }
 
     function findAllForms() {
-        return mock;
+        return forms;
+    }
+
+    function findFormsByUserId(userId) {
+        var userForms;
+        for (var i = 0; i < forms.length; i++) {
+            var curForm = forms[i];
+            if (curForm.userId === userId) {
+                userForms.push(curForm);
+            }
+        }
+        return userForms;
     }
 
     function findFormById(formId) {
