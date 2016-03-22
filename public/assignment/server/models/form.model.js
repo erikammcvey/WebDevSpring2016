@@ -27,10 +27,10 @@ module.exports = function(app) {
     }
 
     function findFormsByUserId(userId) {
-        var userForms;
+        var userForms = [];
         for (var i = 0; i < forms.length; i++) {
             var curForm = forms[i];
-            if (curForm.userId === userId) {
+            if (curForm.userId == userId) {
                 userForms.push(curForm);
             }
         }
@@ -39,7 +39,7 @@ module.exports = function(app) {
 
     function findFormById(formId) {
         for (var i = 0; i < forms.length; i++) {
-            if (forms[i] === formId) {
+            if (forms[i] == formId) {
                 return forms[i];
             }
         }
@@ -48,7 +48,7 @@ module.exports = function(app) {
     function updateForm(formId, newForm) {
         for (var i = 0; i < forms.length(); i++) {
             var form = forms[i];
-            if (form._id === formId) {
+            if (form._id == formId) {
                 forms[i] = newForm;
             }
         }
@@ -64,7 +64,7 @@ module.exports = function(app) {
 
     function findFormByTitle(title) {
         for (var i = 0; i < forms.length; i++) {
-            if (forms[i] === title) {
+            if (forms[i] == title) {
                 return forms[i];
             }
         }
@@ -84,7 +84,7 @@ module.exports = function(app) {
         var form = findFormById(formId);
         for(var i = 0; i < form.fields.length; i++) {
             var field = form.fields[i];
-            if (field._id === fieldId) {
+            if (field._id == fieldId) {
                 return field;
             }
         }

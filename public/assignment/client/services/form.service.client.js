@@ -26,12 +26,14 @@
         function findAllForms(userId) {
             var deferred = $q.defer();
 
-            $http.get('api/assigment/user/'+ userId + '/form')
+            $http.get('/api/assignment/user/'+ userId + '/form')
                 .then(function(res) {
+                    console.log(res);
                     deferred.resolve(res);
                 },
                 function(err) {
                     deferred.reject(err);
+                    console.log('fail');
                 });
             return deferred.promise;
         }
