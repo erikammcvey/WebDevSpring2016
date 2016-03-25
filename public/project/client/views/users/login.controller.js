@@ -1,7 +1,7 @@
 "use strict";
 (function(){
     angular
-        .module("FormBuilderApp")
+        .module("FashionWeatherApp")
         .controller("LoginController", LoginController);
 
     function LoginController($scope, $rootScope, $location, UserService) {
@@ -15,7 +15,7 @@
                         var user = res;
                         if(user){
                             UserService.setUser(user);
-                            $location.url("/profile");
+                            $location.url("/closet");
                         }
                     }
                 )
