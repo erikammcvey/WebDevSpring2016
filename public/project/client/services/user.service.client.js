@@ -12,7 +12,8 @@
             createUser: createUser,
             deleteUserById: deleteUserById,
             updateUser: updateUser,
-            setUser: setUser
+            setUser: setUser,
+            logoutUser: logoutUser
         };
         return services;
 
@@ -88,6 +89,10 @@
 
         function setUser(newUser) {
             $rootScope.currentUser = newUser;
+        }
+
+        function logoutUser() {
+            $rootScope.currentUser = null;
         }
     }
 })();
