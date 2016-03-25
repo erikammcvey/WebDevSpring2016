@@ -15,7 +15,7 @@
                         var user = res;
                         if(user){
                             UserService.setUser(user);
-                            $location.url("/closet");
+                            $location.url("/today");
                         }
                     }
                 )

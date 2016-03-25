@@ -7,10 +7,10 @@
     function Configuration($routeProvider) {
         $routeProvider
             .when("/", {
-                templateUrl: "views/home/home.view.html"
+                templateUrl: "views/welcome/welcome.view.html"
             })
-            .when("/home", {
-                templateUrl: "views/home/home.view.html"
+            .when("/welcome", {
+                templateUrl: "views/welcome/welcome.view.html"
             })
             .when("/admin", {
                 templateUrl: "views/admin/admin.view.html"
