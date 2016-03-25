@@ -2,9 +2,9 @@
     "use strict";
     angular
         .module("FashionWeatherApp")
-        .controller("SettingsController", SettingsController);
+        .controller("ProfileController", ProfileController);
 
-    function SettingsController($location, $scope, $rootScope, UserService) {
+    function ProfileController($location, $scope, $rootScope, UserService) {
         $scope.update = update;
 
         function update(user) {

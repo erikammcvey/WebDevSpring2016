@@ -12,7 +12,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li ng-show="!currentUser"><a href="#/register">Register</a></li>
                 <li ng-show="!currentUser"><a href="#/login">Login</a></li>
-                <li ng-show="currentUser"><a href="#/settings">Settings</a></li>
+                <li ng-show="currentUser"><a href="#/profile">{{currentUser.username}}</a></li>
                 <li ng-show="currentUser"><a href="#/today">Today</a></li>
                 <li ng-show="currentUser"><a href="#/closet">My Closet</a></li>
                 <li ng-show="currentUser"><a ng-click="logout()" href="#/home">Logout</a></li>

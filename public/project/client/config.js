@@ -32,9 +32,9 @@
                 templateUrl: "views/users/register.view.html",
                 controller: "RegisterController"
             })
-            .when("/settings", {
-                templateUrl: "views/users/settings.view.html",
-                controller: "SettingsController"
+            .when("/profile", {
+                templateUrl: "views/users/profile.view.html",
+                controller: "ProfileController"
             })
             .when("/today", {
                 templateUrl: "views/today/today.view.html",
