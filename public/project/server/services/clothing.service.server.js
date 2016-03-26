@@ -1,11 +1,11 @@
-var clothing = require("./../models/user.model.js")();
+var clothing = require("./../models/clothing.model.js")();
 module.exports = function(app, Model) {
 
     app.post('/api/project/clothing', addClothing);
     app.put('/api/project/clothing/:id', updateClothing);
     app.delete('/api/project/clothing/:id', deleteClothing);
-    app.get('/api/project/clothing/', getClothing);
-    app.get('/api/project/clothing/:id', findClothingById);
+    app.get('/api/project/clothing/user/:id', getClothing);
+    app.get('/api/project/clothing/:id', getClothingById);
 
     function addClothing(req, res) {
         res.json(clothing.addClothing(req.body));
@@ -18,36 +18,18 @@ module.exports = function(app, Model) {
         res.json(clothing.updateClothing(updates));
     }
 
-    function deleteUser(req, res) {
-        res.json(clothing.deleteUserById(req.params.id));
+    function deleteClothing(req, res) {
+        res.json(clothing.deleteClothingById(req.params.id));
     }
 
-    function getUser(req, res) {
-        // need to switch on context
-        if (req.query.username && req.query.password) {
-            return login(req, res);
-        } else if (req.query.username) {
-            return getUserByUsername(req, res);
-        } else {
-            return getAllUsers(req, res);
-        }
-    }
-
-    function getUserById(req, res) {
+    function getClothing(req, res) {
         var uid = req.params.id;
-        res.json(clothing.findUserById(uid));
-
+        res.json(clothing.allClothingForUser(uid));
     }
 
-    function login(req, res) {
-        res.json(clothing.findUserByCredentials(req.query.username, req.query.password));
-    }
+    function getClothingById(req, res) {
+        var id = req.params.id;
+        res.json(clothing.findClothingById(id));
 
-    function getUserByUsername(req, res) {
-        res.json(clothing.findUserByUsername(req.query.username))
-    }
-
-    function getAllUsers(req, res) {
-        res.json(clothing.findAllUsers());
     }
 };

@@ -17,7 +17,8 @@
                 controller: "LoginController"
             })
             .when("/closet", {
-                templateUrl: "views/closet/closet.view.html"
+                templateUrl: "views/closet/closet.view.html",
+                controller: "ClosetController"
             })
             .when("/clean", {
                 templateUrl: "views/closet/clean.view.html"

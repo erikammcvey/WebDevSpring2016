@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="ClosetController">
     <div class="main">
         <h1 class="page-header">My Closet</h1>
         <div class="form-group">
@@ -11,15 +11,18 @@
             <li role="presentation"><a href="#/clean">Clean</a></li>
             <li role="presentation"><a href="#/dirty">Dirty</a></li>
         </ul>
-        <div class="clothes">
-            <img src="images/jeans.jpg">
-            <img src="images/yellow-boots.jpg">
-            <img src="images/t-shirt.jpg">
-            <img src="images/duck-boots.jpg">
-            <img src="images/leggings.jpg">
-            <img src="images/black-top.jpg">
-            <img src="images/umbrella.jpg">
-            <img src="images/rain-jacket.jpg">
+        <!--<div class="clothes">-->
+            <!--<img src="images/jeans.jpg">-->
+            <!--<img src="images/yellow-boots.jpg">-->
+            <!--<img src="images/t-shirt.jpg">-->
+            <!--<img src="images/duck-boots.jpg">-->
+            <!--<img src="images/leggings.jpg">-->
+            <!--<img src="images/black-top.jpg">-->
+            <!--<img src="images/umbrella.jpg">-->
+            <!--<img src="images/rain-jacket.jpg">-->
+        <!--</div>-->
+        <div class="row">
+            <img ng-repeat="item in clothing" ng-src="{{item.img}}">
         </div>
     </div>
 </div>
