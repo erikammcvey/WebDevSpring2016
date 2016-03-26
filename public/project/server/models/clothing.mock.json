@@ -1,0 +1,75 @@
+[
+  {
+    "_id": 1,
+    "user_id": 1,
+    "name": "Yellow Rain Boots",
+    "color_main": "yellow",
+    "colors_other": [],
+    "pattern": "none",
+    "type": "shoes",
+    "warmth": "na",
+    "water": true,
+    "settings": [
+      "casual"
+    ],
+    "clean": true,
+    "img": "./../../images/yellow-boots.jpg"
+  },
+  {
+    "_id": 2,
+    "user_id": 1,
+    "name": "Dark Jeans",
+    "color_main": "blue",
+    "colors_other": [],
+    "pattern": "none",
+    "type": "pants",
+    "warmth": "warm",
+    "water": false,
+    "settings": [
+      "casual"
+    ],
+    "clean": true,
+    "img": "./../../images/jeans.jpg"
+  },
+  {
+    "_id": 3,
+    "user_id": 1,
+    "name": "Polka Dot Umbrella",
+    "color_main": "black",
+    "colors_other": [
+      "white"
+    ],
+    "pattern": "polka",
+    "type": "other accessory",
+    "warmth": "na",
+    "water": true,
+    "settings": [
+      "athletic",
+      "lazy",
+      "casual",
+      "business",
+      "formal"
+    ],
+    "clean": true,
+    "img": "./../../images/umbrella.jpg"
+  },
+  {
+    "_id": 4,
+    "user_id": 1,
+    "name": "Darth Vader shirt",
+    "color_main": "gray",
+    "colors_other": [
+      "black"
+    ],
+    "pattern": "none",
+    "type": "shirt",
+    "warmth": "not warm",
+    "water": false,
+    "settings": [
+      "lazy",
+      "casual"
+    ],
+    "clean": false,
+    "img": "./../../images/t-shirt.jpg"
+  }
+]
