@@ -1,4 +1,4 @@
-var model = require("./../models/form.model.js")();
+var model = require("./../models/form/form.model.server.js")();
 
 module.exports = function(app) {
     app.get('/api/assignment/user/:userId/form', getFormsForUser);

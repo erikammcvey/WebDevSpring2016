@@ -1,4 +1,4 @@
-var model = require("./../models/user.model.js")()
+var model = require("./../models/user/user.model.server.js")()
 
 module.exports = function(app, Model) {
 
