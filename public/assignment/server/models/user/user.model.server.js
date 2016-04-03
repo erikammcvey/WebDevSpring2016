@@ -1,7 +1,10 @@
-var users = require("./user.mock.json");
 var uuid = require("node-uuid");
+var q = require("q");
 
 module.exports = function(db, mongoose) {
+    var UserSchema = require("./user.schema.server.js")(mongoose);
+    var UserModel = mongoose.model('UserModel', UserSchema);
+
     var api = {
         createUser: createUser,
         findAllUsers: findAllUsers,
@@ -14,44 +17,92 @@ module.exports = function(db, mongoose) {
     return api;
 
     function createUser(user) {
-        var id = (new Date()).getTime();
-        var usrnew = {
-            "_id": id,
+        var deferred = q.defer();
+        var _id = uuid.v1();
+        var userNew = {
+            "_id": _id,
             "username": user.username,
             "password": user.password,
-            "email": user.email
+            "firstName": user.firstName,
+            "lastName": user.lastName,
+            "email" : user.email,
+            "roles" : [user.roles]
         };
-        users.push(usrnew);
-        return usrnew;
+
+        UserModel.create(userNew, function (error, doc) {
+            if (error) {
+                deferred.reject(error);
+            } else {
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function findAllUsers() {
-        return users;
+        var deferred = q.defer();
+        UserModel.find(
+            function(error, doc) {
+                if (error) {
+                    deferred.reject(error);
+                } else {
+                    deferred.resolve(doc);
+                }
+            });
+        return deferred.promise;
     }
 
     function findUserById(userId) {
-        for (var i = 0; i < users.length; i++) {
-            if (users[i] === userId) {
-                return users[i];
-            }
-        }
+        var deferred = q.defer();
+        UserModel.findById(
+            {"_id": userId},
+            function(error, doc) {
+                if (error) {
+                    deferred.reject(error);
+                }
+                else {
+                    deferred.resolve(doc);
+                }
+            })
+        return deferred.promise;
     }
 
     function updateUser(userId, newUser) {
-        for (var i = 0; i < users.length; i++) {
-            var user = users[i];
-            if (user._id === userId) {
-                users[i] = newUser;
-            }
-        }
+        var deferred = q.defer();
+        UserModel.update (
+            {_id: userId},
+            {$set: newUser},
+            function (error, doc) {
+                if(error) {
+                    deferred.reject(error);
+                }
+                else {
+                    UserModel.findById(userId,
+                        function (err, user) {
+                            if(err) {
+                                deferred.reject(err);
+                            }
+                            else {
+                                deferred.resolve(user);
+                            }
+                        });
+                }
+            });
+        return deferred.promise;
     }
 
     function deleteUserById(userId) {
-        var user = findUserById(userId);
-        if (user) {
-            var index = users.indexOf(user);
-            users.splice(index, 1);
-        }
+        var deferred = q.defer();
+        UserModel.remove(
+            {_id: userId},
+            function(error, doc) {
+                if (error) {
+                    deferred.reject(error);
+                } else {
+                    deferred.resolve(findAllUsers());
+                }
+            });
+        return deferred.promise;
     }
 
     function findUserByUsername(username) {
@@ -63,12 +114,18 @@ module.exports = function(db, mongoose) {
     }
 
     function findUserByCredentials(username, password) {
-        for (var i = 0; i < users.length; i++) {
-            var user = users[i];
-            if (user.username === username &&
-                user.password === password) {
-                return user;
-            }
-        }
+        var deferred = q.defer();
+        UserModel.findOne(
+            { username: username,
+                password: password },
+
+            function(error, doc) {
+                if (error) {
+                    deferred.reject(error);
+                } else {
+                    deferred.resolve(doc);
+                }
+            });
+        return deferred.promise;
     }
 };
