@@ -1,4 +1,6 @@
-module.exports = function (mongoose) {
+module.exports = function () {
+    var mongoose = require("mongoose");
+
     var FieldSchema = mongoose.Schema({
             label: String,
             type: {type: String, enum: [

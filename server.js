@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var mongoose = require('mongoose');
-var connectionString = 'mongodb://localhost/WebDev';
+var connectionString = 'mongodb://localhost/webdevelopment';
 
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
     connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
@@ -28,7 +28,7 @@ require("./public/assignment/server/app.js")(app, db, mongoose);
 //require("./public/assignment/server/services/form.service.server.js")(app);
 //require("./public/assignment/server/services/field.service.server.js")(app);
 
-require("./public/project/server/app.js")(app);
-require("./public/project/server/services/user.service.server.js")(app);
+//require("./public/project/server/app.js")(app);
+//require("./public/project/server/services/user.service.server.js")(app);
 
 app.listen(port, ipaddress);
