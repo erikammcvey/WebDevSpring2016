@@ -1,4 +1,4 @@
-var clothing = require("./../models/clothing.model.js")();
+var clothing = require("./../models/clothing/clothing.model.server.js")();
 module.exports = function(app, Model) {
 
     app.post('/api/project/clothing', addClothing);

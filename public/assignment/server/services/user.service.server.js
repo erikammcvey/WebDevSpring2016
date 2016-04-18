@@ -1,6 +1,4 @@
-var model = require("./../models/user/user.model.server.js")()
-
-module.exports = function(app, Model) {
+module.exports = function(app, userModel) {
 
     app.post('/api/assignment/user', createUser);
     app.put('/api/assignment/user/:id', updateUser);
@@ -9,18 +7,18 @@ module.exports = function(app, Model) {
     app.get('/api/assignment/user/:id', getUserById);
 
     function createUser(req, res) {
-        res.json(model.createUser(req.body));
+        res.json(userModel.createUser(req.body));
     }
 
     function updateUser(req, res) {
         var id = req.params.id;
         var updates = req.body;
         updates._id = id;
-        res.json(model.updateUser(updates));
+        res.json(userModel.updateUser(updates));
     }
 
     function deleteUser(req, res) {
-        res.json(model.deleteUserById(req.params.id));
+        res.json(userModel.deleteUserById(req.params.id));
     }
 
     function getUser(req, res) {
@@ -36,19 +34,19 @@ module.exports = function(app, Model) {
 
     function getUserById(req, res) {
         var uid = req.params.id;
-        res.json(model.findUserById(uid));
+        res.json(userModel.findUserById(uid));
 
     }
 
     function login(req, res) {
-        res.json(model.findUserByCredentials(req.query.username, req.query.password));
+        res.json(userModel.findUserByCredentials(req.query.username, req.query.password));
     }
 
     function getUserByUsername(req, res) {
-        res.json(model.findUserByUsername(req.query.username))
+        res.json(userModel.findUserByUsername(req.query.username))
     }
 
     function getAllUsers(req, res) {
-        res.json(model.findAllUsers());
+        res.json(userModel.findAllUsers());
     }
 };

@@ -1,8 +1,7 @@
 var uuid = require("node-uuid");
 var q = require("q");
 
-module.exports = function(db, $rootScope) {
-    var mongoose = require("mongoose");
+module.exports = function(db, mongoose, $rootScope) {
     var FormSchema = require("./form.schema.server.js")(mongoose);
     var FormModel = mongoose.model('FormModel', FormSchema);
     var api = {

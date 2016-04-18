@@ -1,10 +1,9 @@
 var uuid = require("node-uuid");
 var q = require("q");
-var mongoose = require("mongoose");
 
-module.exports = function(db) {
+module.exports = function(db, mongoose) {
     var UserSchema = require("./user.schema.server.js")(mongoose);
-    //var UserModel = mongoose.model('UserModel', UserSchema);
+    var UserModel = mongoose.model('UserModel', UserSchema);
 
     var api = {
         createUser: createUser,
