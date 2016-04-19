@@ -13,10 +13,15 @@
                 .then(
                     function(res){
                         var user = res;
-                        if(user){
+                        console.log(user);
+                        if(user.data.role === "user"){
                             UserService.setUser(user);
                             $location.url("/today");
+                        } else if (user.data.role === "advertiser") {
+                            UserService.setUser(user);
+                            $location.url("/ads");
                         }
+
                     }
                 )
 

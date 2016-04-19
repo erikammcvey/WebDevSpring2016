@@ -65,6 +65,20 @@
                     loggedin: checkLoggedIn
                 }
             })
+            .when("/ads", {
+                templateUrl: "views/advertiser/ads.view.html",
+                controller: "AdsController",
+                resolve: {
+                    loggedin: checkLoggedIn
+                }
+            })
+            .when("/addAd", {
+                templateUrl: "views/advertiser/addad.view.html",
+                controller: "AdsController",
+                resolve: {
+                    loggedin: checkLoggedIn
+                }
+            })
             .otherwise({
                 redirectTo: "/home"
             });

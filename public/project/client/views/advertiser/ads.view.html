@@ -1,0 +1,12 @@
+<div class="container" ng-controller="AdsController">
+    <div class="main">
+        <h1 class="page-header">My Advertisements</h1>
+        <div class="form-group">
+            <div class="text-right">
+                <a href="#/addAd" class="btn btn-default">Add Advertisement</a>
+            </div>
+        </div>
+        <div class="clothes"><img ng-repeat="item in ads" ng-src={{item.img}}>
+        </div>
+    </div>
+</div>
