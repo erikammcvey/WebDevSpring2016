@@ -44,18 +44,15 @@ module.exports = function(db, mongoose) {
         return deferred.promise;
     }
 
-    function allClothingForUser(userId) {
-        console.log(userId);
-        var deferred = q.defer();
-        ClothingModel.find( {user_id: userId},
-            function(error, doc) {
-                if (error) {
-                    deferred.reject(error);
-                } else {
-                    deferred.resolve(doc);
-                }
+    function allClothingForUser(params) {
+        console.log(params);
+        console.log(params["user_id"]);
+        console.log(params.clean);
+        return ClothingModel.find({user_id: params.user_id, clean: params.clean})
+            .then(
+                function(clothes) {
+                return clothes;
             });
-        return deferred.promise;
     }
 
     function findClothingById(itemId) {

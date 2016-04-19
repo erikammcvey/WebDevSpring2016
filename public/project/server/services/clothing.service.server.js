@@ -3,32 +3,73 @@ module.exports = function(app, ClothingModel) {
     app.post('/api/project/clothing', addClothing);
     app.put('/api/project/clothing/:id', updateClothing);
     app.delete('/api/project/clothing/:id', deleteClothing);
-    app.get('/api/project/clothing/user/:id', getClothing);
+    app.get('/api/project/clothing/user/:id/clean/:clean', getClothing);
     app.get('/api/project/clothing/:id', getClothingById);
 
     function addClothing(req, res) {
-        res.json(ClothingModel.addClothing(req.body));
+        ClothingModel.addClothing(req.body)
+            .then(
+                function(doc) {
+                    res.json(doc);
+                },
+                function(err) {
+                    res.json(err);
+                }
+            )
     }
 
     function updateClothing(req, res) {
         var id = req.params.id;
         var updates = req.body;
         updates._id = id;
-        res.json(ClothingModel.updateClothing(updates));
+        ClothingModel.updateClothing(updates)
+            .then(
+                function(doc) {
+                    res.json(doc);
+                },
+                function(err) {
+                    res.json(err);
+                }
+            )
     }
 
     function deleteClothing(req, res) {
-        res.json(ClothingModel.deleteClothingById(req.params.id));
+        ClothingModel.deleteClothingById(req.params.id)
+            .then(
+                function(doc) {
+                    res.json(doc);
+                },
+                function(err) {
+                    res.json(err);
+                }
+            )
     }
 
     function getClothing(req, res) {
-        var uid = req.params.id;
-        res.json(ClothingModel.allClothingForUser(uid));
+        console.log("nowww Im here");
+        var userId = req.params.id;
+        var clean = req.params.clean;
+        ClothingModel.allClothingForUser({user_id: userId, clean: clean})
+            .then(
+                function(doc) {
+                    res.json(doc);
+                },
+                function(err) {
+                    res.json(err);
+                }
+            )
     }
 
     function getClothingById(req, res) {
         var id = req.params.id;
-        res.json(ClothingModel.findClothingById(id));
-
+        ClothingModel.findClothingById(id)
+            .then(
+                function(doc) {
+                    res.json(doc);
+                },
+                function(err) {
+                    res.json(err);
+                }
+            )
     }
 };

@@ -107,16 +107,6 @@ module.exports = function(db, mongoose) {
     }
 
     function findUserByUsername(username) {
-        //var deferred = q.defer();
-        //UserModel.findOne({username: username},
-        //    function (error, doc) {
-        //        if (error) {
-        //            deferred.reject(error);
-        //        } else {
-        //            deferred.resolve(doc);
-        //        }
-        //
-        //    })
         return UserModel.findOne({username: username});
     }
 

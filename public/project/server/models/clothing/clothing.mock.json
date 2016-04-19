@@ -1,7 +1,7 @@
 [
   {
     "_id": 1,
-    "user_id": 1,
+    "user_id": "5715a8d647925ccc4f4dd71e",
     "name": "Yellow Rain Boots",
     "color_main": "yellow",
     "colors_other": [],
@@ -17,7 +17,7 @@
   },
   {
     "_id": 2,
-    "user_id": 1,
+    "user_id": "5715a8d647925ccc4f4dd71e",
     "name": "Dark Jeans",
     "color_main": "blue",
     "colors_other": [],
@@ -33,7 +33,7 @@
   },
   {
     "_id": 3,
-    "user_id": 1,
+    "user_id": "5715a8d647925ccc4f4dd71e",
     "name": "Polka Dot Umbrella",
     "color_main": "black",
     "colors_other": [
@@ -55,7 +55,7 @@
   },
   {
     "_id": 4,
-    "user_id": 1,
+    "user_id": "5715a8d647925ccc4f4dd71e",
     "name": "Darth Vader shirt",
     "color_main": "gray",
     "colors_other": [
@@ -74,7 +74,7 @@
   },
   {
     "_id": 5,
-    "user_id": 1,
+    "user_id": "5715a8d647925ccc4f4dd71e",
     "name": "black leggings",
     "color_main": "black",
     "colors_other": [],
@@ -91,7 +91,7 @@
   },
   {
     "_id": 6,
-    "user_id": 1,
+    "user_id": "5715a8d647925ccc4f4dd71e",
     "name": "black lacy top",
     "color_main": "black",
     "colors_other": [],
@@ -108,7 +108,7 @@
   },
   {
     "_id": 7,
-    "user_id": 1,
+    "user_id": "5715a8d647925ccc4f4dd71e",
     "name": "duck boots",
     "color_main": "brown",
     "colors_other": [
@@ -127,7 +127,7 @@
   },
   {
     "_id": 8,
-    "user_id": 1,
+    "user_id": "5715a8d647925ccc4f4dd71e",
     "name": "rain jacket",
     "color_main": "blue",
     "colors_other": [],

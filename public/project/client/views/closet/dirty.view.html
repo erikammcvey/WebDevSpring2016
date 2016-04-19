@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="main">
+    <div class="main" ng-controller="ClosetController">
         <h1 class="page-header">My Closet</h1>
         <div class="form-group">
             <div class="text-right">
@@ -11,11 +11,7 @@
             <li role="presentation"><a href="#/clean">Clean</a></li>
             <li role="presentation" class="active"><a href="#/dirty">Dirty</a></li>
         </ul>
-        <div class="clothes">
-            <img src="images/yellow-boots.jpg">
-            <img src="images/duck-boots.jpg">
-            <img src="images/black-top.jpg">
-            <img src="images/rain-jacket.jpg">
+        <div class="clothes"><img ng-repeat="item in dirty" ng-src={{item.img}}>
         </div>
     </div>
 </div>

@@ -7,16 +7,32 @@
     function ClosetController($scope,$rootScope,ClothingService){
 
         function init() {
-            getAllCothesForUser($rootScope.currentUser._id);
-            $scope.erg = "bleh";
+            var userId = $rootScope.currentUser._id;
+            getAllCothesForUser();
+            getCleanClothes();
+            getDirtyClothes();
 
-            function getAllCothesForUser(userId){
+            function getAllCothesForUser(){
                 ClothingService.getClothingForUser(userId)
                     .then(
                         function(val) {
-                            console.log('closet controller');
-                            console.log(val);
                             $scope.clothing = val;
+                        }
+                    )
+            };
+            function getCleanClothes(){
+                ClothingService.getClothingForUser(userId, true)
+                    .then(
+                        function(val) {
+                            $scope.clean = val;
+                        }
+                    )
+            };
+            function getDirtyClothes(){
+                ClothingService.getClothingForUser(userId, false)
+                    .then(
+                        function(val) {
+                            $scope.dirty = val;
                         }
                     )
             };
