@@ -13,22 +13,17 @@
             deleteUserById: deleteUserById,
             updateUser: updateUser,
             setUser: setUser,
-            logoutUser: logoutUser
+            logoutUser: logoutUser,
+            getTemperature: getTemp
         };
         return services;
 
         function findUserByCredentials(username, password) {
-            var deferred = $q.defer();
-            $http.get("/api/project/user?username="+username+"&password="+password)
-                .then(
-                    function(response) {
-                        deferred.resolve(response.data);
-                    },
-                    function(error) {
-                        deferred.reject(error);
-                    }
-                );
-            return deferred.promise;
+            return $http({
+                method: 'POST',
+                url: '/api/project/login',
+                data: {username: username, password: password}
+            });
         }
 
         function findUserByUsername(username) {
@@ -92,7 +87,22 @@
         }
 
         function logoutUser() {
-            $rootScope.currentUser = null;
+            return $http.post("/api/project/logout");
+        }
+
+        function getTemp() {
+            var deferred = $q.defer();
+            var key = "90b008e1dc8c7954081ed1d77c3bcc2f";
+            var zip = $rootScope.currentUser.zip;
+            $http.get("http://api.openweathermap.org/data/2.5/weather?zip="+zip+",us&units=imperial&APPID="+key)
+                .then(function(res) {
+                    var weather = {temp: res.data.main.temp, des: res.data.weather[0].description};
+                        deferred.resolve(weather);
+                    },
+                    function(err) {
+                        deferred.reject(err);
+                    });
+            return deferred.promise;
         }
     }
 })();

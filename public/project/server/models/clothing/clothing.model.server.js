@@ -1,7 +1,10 @@
-var clothes = require("./clothing.mock.json");
 var uuid = require("node-uuid");
+var q = require("q");
 
-module.exports = function(app) {
+module.exports = function(db, mongoose) {
+    var ClothingSchema = require("./clothing.schema.server.js")(mongoose);
+    var ClothingModel = mongoose.model('ClothingModel', ClothingSchema);
+
     var api = {
         addClothing: addClothing,
         allClothingForUser: allClothingForUser,
@@ -15,7 +18,8 @@ module.exports = function(app) {
     return api;
 
     function addClothing(item, user) {
-        var id = (new Date()).getTime();
+        var deferred = q.defer();
+        var id = uuid.v1();
         var clothingnew =  {
                 "_id": id,
                 "user_id": user._id,
@@ -30,71 +34,145 @@ module.exports = function(app) {
                 "clean": item.clean,
                 "img": item.img
             };
-        clothes.push(clothingnew);
-        return clothingnew;
+        ClothingModel.create(clothingnew, function (error, doc) {
+            if (error) {
+                deferred.reject(error);
+            } else {
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function allClothingForUser(userId) {
-        var user_clothes = [];
-        for (var i = 0; i < clothes.length; i++) {
-            var item = clothes[i];
-            if (item.user_id == userId) {
-                user_clothes.push(item);
-            }
-        }
-        return user_clothes;
+        console.log(userId);
+        var deferred = q.defer();
+        ClothingModel.find( {user_id: userId},
+            function(error, doc) {
+                if (error) {
+                    deferred.reject(error);
+                } else {
+                    deferred.resolve(doc);
+                }
+            });
+        return deferred.promise;
     }
 
     function findClothingById(itemId) {
-        for (var i = 0; i < clothes.length; i++) {
-            var item = clothes[i];
-            if (item._id === itemId) {
-                return item;
+        var deferred = q.defer();
+        ClothingModel.findOne({_id: itemId},
+        function(error, doc) {
+            if (error) {
+                deferred.reject(error);
+            } else {
+                deferred.resolve(doc);
             }
-        }
+        });
+        return deferred.promise;
     }
 
     function updateClothing(clothingId, newItem) {
-        for (var i = 0; i < clothes.length; i++) {
-            var item = clothes[i];
-            if (item._id == clothingId) {
-                clothes[i] = newItem;
-            }
-        }
+        var deferred = q.defer();
+        ClothingModel.update (
+            {_id: clothingId},
+            {$set: newItem},
+            function (error, doc) {
+                if(error) {
+                    deferred.reject(error);
+                }
+                else {
+                    ClothingModel.findById(userId,
+                        function (err, user) {
+                            if(err) {
+                                deferred.reject(err);
+                            }
+                            else {
+                                deferred.resolve(user);
+                            }
+                        });
+                }
+            });
+        return deferred.promise;
     }
 
     function deleteClothingById(itemId) {
-        var item = findClothingById(itemId);
-        if (item) {
-            var index = clothes.indexOf(item);
-            clothes.splice(index, 1);
-        }
+        var deferred = q.defer();
+        ClothingModel.remove(
+            {_id: itemId},
+            function(error, doc) {
+                if (error) {
+                    deferred.reject(error);
+                } else {
+                    deferred.resolve(doc);
+                }
+            });
+        return deferred.promise;
     }
 
     function findClothingByName(name) {
-        for (var i = 0; i < clothes.length; i++) {
-            var item = clothes[i];
-            if (item.name == name) {
-                return item;
+        var deferred = q.defer();
+        ClothingModel.find({name: name},
+        function(error, doc) {
+            if (error) {
+                deferred.reject(error);
+            } else {
+                deferred.resolve(doc);
             }
-        }
+        });
+        return deferred.promise;
     }
 
     function markClothingClean(itemId) {
-        for (var i = 0; i < clothes.length; i++) {
-            var item = clothes[i];
-            if (item._id == itemId) {
-                item.clean = true;
-            }
-        }
+        var deferred = q.defer();
+        var item = findClothingById(itemId);
+        item.clean = true;
+
+        ClothingModel.update (
+            {_id: itemId},
+            {$set: item},
+            function (error, doc) {
+                if(error) {
+                    deferred.reject(error);
+                }
+                else {
+                    ClothingModel.findById(userId,
+                        function (err, user) {
+                            if(err) {
+                                deferred.reject(err);
+                            }
+                            else {
+                                deferred.resolve(user);
+                            }
+                        });
+                }
+            });
+        return deferred.promise;
     }
 
     function markClothingDirty(itemId) {
-        for (var i = 0; i < clothes.length; i++) {
-            var item = clothes[i];
-            if (item._id == itemId) {
-                item.clean = false;
-            }
-        }
+        var deferred = q.defer();
+        var item = findClothingById(itemId);
+        item.clean = false;
+
+        ClothingModel.update (
+            {_id: itemId},
+            {$set: item},
+            function (error, doc) {
+                if(error) {
+                    deferred.reject(error);
+                }
+                else {
+                    ClothingModel.findById(userId,
+                        function (err, user) {
+                            if(err) {
+                                deferred.reject(err);
+                            }
+                            else {
+                                deferred.resolve(user);
+                            }
+                        });
+                }
+            });
+        return deferred.promise;
     }
 };

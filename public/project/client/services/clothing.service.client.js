@@ -11,10 +11,14 @@
         return services;
 
         function getClothingForUser(userId) {
+            console.log('uid');
+            console.log(userId);
             var deferred = $q.defer();
             $http.get('/api/project/clothing/user/' +userId)
                 .success(
                     function(response) {
+                        console.log('clothing service clinet');
+                        console.log(response.data);
                         deferred.resolve(response.data);
                     }
                 );

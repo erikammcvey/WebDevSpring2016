@@ -2,8 +2,11 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var session = require('express-session');
+var cookieParser  = require('cookie-parser');
+var passport = require('passport');
 var mongoose = require('mongoose');
-var connectionString = 'mongodb://localhost/webdevelopment';
+var connectionString = 'mongodb://localhost/test';
 
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
     connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
@@ -22,8 +25,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer());
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(cookieParser());
+var secret = process.env.SESSION_SECRET;
+app.use(session({
+    secret: secret,
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 require("./public/assignment/server/app.js")(app, db, mongoose);
-require(".public/project/server/app.js")(app, db, mongoose);
+require("./public/project/server/app.js")(app, db, mongoose, passport);
 
 app.listen(port, ipaddress);

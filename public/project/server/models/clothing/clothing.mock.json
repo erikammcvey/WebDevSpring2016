@@ -13,7 +13,7 @@
       "casual"
     ],
     "clean": true,
-    "img": "./../../images/yellow-boots.jpg"
+    "img": "/project/images/yellow-boots.jpg"
   },
   {
     "_id": 2,
@@ -29,7 +29,7 @@
       "casual"
     ],
     "clean": true,
-    "img": "./../../images/jeans.jpg"
+    "img": "/project/images/jeans.jpg"
   },
   {
     "_id": 3,
@@ -51,7 +51,7 @@
       "formal"
     ],
     "clean": true,
-    "img": "./../../images/umbrella.jpg"
+    "img": "/project/images/umbrella.jpg"
   },
   {
     "_id": 4,
@@ -59,7 +59,7 @@
     "name": "Darth Vader shirt",
     "color_main": "gray",
     "colors_other": [
-      "black"
+      "black", "yellow"
     ],
     "pattern": "none",
     "type": "shirt",
@@ -70,6 +70,77 @@
       "casual"
     ],
     "clean": false,
-    "img": "./../../images/t-shirt.jpg"
+    "img": "/project/images/t-shirt.jpg"
+  },
+  {
+    "_id": 5,
+    "user_id": 1,
+    "name": "black leggings",
+    "color_main": "black",
+    "colors_other": [],
+    "pattern": "none",
+    "type": "pants",
+    "warmth": "not warm",
+    "water": false,
+    "settings": [
+      "lazy",
+      "athletic"
+    ],
+    "clean": true,
+    "img": "/project/images/leggings.jpg"
+  },
+  {
+    "_id": 6,
+    "user_id": 1,
+    "name": "black lacy top",
+    "color_main": "black",
+    "colors_other": [],
+    "pattern": "none",
+    "type": "shirt",
+    "warmth": "not warm",
+    "water": false,
+    "settings": [
+      "casual",
+      "business"
+    ],
+    "clean": false,
+    "img": "/project/images/black-top.jpg"
+  },
+  {
+    "_id": 7,
+    "user_id": 1,
+    "name": "duck boots",
+    "color_main": "brown",
+    "colors_other": [
+      "black"
+    ],
+    "pattern": "none",
+    "type": "shoes",
+    "warmth": "very warm",
+    "water": true,
+    "settings": [
+      "lazy",
+      "casual"
+    ],
+    "clean": false,
+    "img": "/project/images/duck-boots.jpg"
+  },
+  {
+    "_id": 8,
+    "user_id": 1,
+    "name": "rain jacket",
+    "color_main": "blue",
+    "colors_other": [],
+    "pattern": "none",
+    "type": "jacket",
+    "warmth": "warm",
+    "water": true,
+    "settings": [
+      "lazy",
+      "casual",
+      "atheletic"
+    ],
+    "clean": false,
+    "img": "/project/images/rain-jacket.jpg"
   }
 ]

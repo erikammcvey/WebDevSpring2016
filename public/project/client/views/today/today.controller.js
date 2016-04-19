@@ -8,5 +8,18 @@
         $(document).ready(function () {
             $('.bxslider').bxSlider();
         });
+
+        function init() {
+            setTemp();
+
+            function setTemp() {
+                var resp = UserService.getTemperature();
+                resp.then(function(val){
+                    $scope.temp = val.temp;
+                    $scope.des = val.des;
+                });
+            }
+        }
+        init();
     }
 })();

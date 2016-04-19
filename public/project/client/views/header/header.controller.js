@@ -4,12 +4,20 @@
         .module("FashionWeatherApp")
         .controller("HeaderController",HeaderController);
 
-    function HeaderController($scope, $rootScope, UserService) {
+    function HeaderController($scope, $rootScope, $location, UserService) {
         $scope.logout = logout;
 
         function logout() {
-            UserService.logoutUser();
+            UserService
+                .logoutUser()
+                .then(
+                    function(response){
+                        $rootScope.currentUser = null;
+                        $location.url("/welcome");
+                    },
+                    function(err) {
+                    }
+                );
         }
     }
-
 })();

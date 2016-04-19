@@ -11,9 +11,7 @@
         function register(user) {
             UserService.createUser(user)
                 .then(function(doc) {
-                    console.log(x);
                     x.user = doc;
-                    console.log(doc);
                     if (doc) {
                         UserService.setUser(x.user);
                         $location.url("/closet");

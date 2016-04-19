@@ -63,7 +63,7 @@ module.exports = function(db, mongoose) {
                 else {
                     deferred.resolve(doc);
                 }
-            })
+            });
         return deferred.promise;
     }
 

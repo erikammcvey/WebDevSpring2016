@@ -1,6 +1,5 @@
 module.exports = function () {
     var mongoose = require("mongoose");
-
     var ClothingSchema = mongoose.Schema({
         user_id: String,
         name: String,

@@ -11,18 +11,10 @@
             <li role="presentation"><a href="#/clean">Clean</a></li>
             <li role="presentation"><a href="#/dirty">Dirty</a></li>
         </ul>
-        <!--<div class="clothes">-->
-            <!--<img src="images/jeans.jpg">-->
-            <!--<img src="images/yellow-boots.jpg">-->
-            <!--<img src="images/t-shirt.jpg">-->
-            <!--<img src="images/duck-boots.jpg">-->
-            <!--<img src="images/leggings.jpg">-->
-            <!--<img src="images/black-top.jpg">-->
-            <!--<img src="images/umbrella.jpg">-->
-            <!--<img src="images/rain-jacket.jpg">-->
-        <!--</div>-->
+        <p>{{erg}}</p>
+        <div class="clothing"><img ng-repeat="item in clothing" ng-src={{item.img}}></div>
         <div class="row">
-            <img ng-repeat="item in clothing" ng-src="{{item.img}}">
+
         </div>
     </div>
 </div>
