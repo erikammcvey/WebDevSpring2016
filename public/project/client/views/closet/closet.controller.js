@@ -4,7 +4,8 @@
         .module("FashionWeatherApp")
         .controller("ClosetController",ClosetController);
 
-    function ClosetController($scope,$rootScope,ClothingService){
+    function ClosetController($scope,$rootScope,ClothingService, $location){
+        $scope.itemAdded = itemAdded;
 
         function init() {
             var userId = $rootScope.currentUser._id;
@@ -38,5 +39,9 @@
             };
         }
         init();
+
+        function itemAdded() {
+            $location.url('/closet');
+        }
     }
 })();

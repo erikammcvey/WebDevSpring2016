@@ -17,24 +17,13 @@ module.exports = function(db, mongoose) {
     };
     return api;
 
-    function addClothing(item, user) {
+    function addClothing(item, filepath, user) {
+        console.log('model add clothing');
         var deferred = q.defer();
-        var id = uuid.v1();
-        var clothingnew =  {
-                "_id": id,
-                "user_id": user._id,
-                "name": item.name,
-                "color_main": item.color_main,
-                "colors_other": item.colors_other,
-                "pattern": item.pattern,
-                "type": item.type,
-                "warmth": item.warmth,
-                "water": item.water,
-                "settings": item.settings,
-                "clean": item.clean,
-                "img": item.img
-            };
-        ClothingModel.create(clothingnew, function (error, doc) {
+        item.img = '/project/images/' + filepath;
+        item.user_id = user;
+        item.clean = true;
+        ClothingModel.create(item, function (error, doc) {
             if (error) {
                 deferred.reject(error);
             } else {
@@ -45,9 +34,6 @@ module.exports = function(db, mongoose) {
     }
 
     function allClothingForUser(params) {
-        console.log(params);
-        console.log(params["user_id"]);
-        console.log(params.clean);
         return ClothingModel.find({user_id: params.user_id, clean: params.clean})
             .then(
                 function(clothes) {

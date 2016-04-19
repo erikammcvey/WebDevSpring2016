@@ -7,7 +7,7 @@ module.exports = function () {
         colors_other: [String],
         pattern: String,
         type: String,
-        warmth: Number,
+        warmth: String,
         water: Boolean,
         settings: [String],
         clean: Boolean,

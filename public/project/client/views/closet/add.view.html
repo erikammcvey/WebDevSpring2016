@@ -1,107 +1,111 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="main">
+        <div class="main" ng-controller="ClosetController">
             <h1 class="page-header">Add an Item</h1>
-            <form class="form-horizontal">
+            <form class="form-horizontal" enctype="multipart/form-data" method="post", action="/api/project/clothing">
                 <div class="form-group">
                     <label for="name" class="col-sm-2 control-label">Name</label>
                     <div class="col-sm-10">
-                        <input class="form-control" id="name" placeholder="Name">
+                        <input ng-model="item.name" class="form-control" id="name" name="name" placeholder="Name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="type" class="col-sm-2 control-label">Clothing Type</label>
                     <div id="type">
-                        <input type="radio" name="type" value="tshirt"> T-Shirt
-                        <input type="radio" name="type" value="longsleeve"> Long Sleeve Shirt
-                        <input type="radio" name="type" value="tank"> Tank Top
-                        <input type="radio" name="type" value="cardigan"> Cardigan
-                        <input type="radio" name="type" value="sweatshirt"> Sweatshirt
-                        <input type="radio" name="type" value="pants"> Pants
-                        <input type="radio" name="type" value="shorts"> Shorts
-                        <input type="radio" name="type" value="skirt"> Skirt
-                        <input type="radio" name="type" value="dress"> Dress
-                        <input type="radio" name="type" value="shoes"> Shoes
-                        <input type="radio" name="type" value="jewelry"> Jewelry
-                        <input type="radio" name="type" value="scarf"> Scarf
-                        <input type="radio" name="type" value="acc"> Other Accessory
+                        <input ng-model="item.type" type="radio" name="type" value="shirt"> T-Shirt
+                        <input ng-model="item.type" type="radio" name="type" value="longsleeve"> Long Sleeve Shirt
+                        <input ng-model="item.type" type="radio" name="type" value="tank"> Tank Top
+                        <input ng-model="item.type" type="radio" name="type" value="cardigan"> Cardigan
+                        <input ng-model="item.type" type="radio" name="type" value="sweatshirt"> Sweatshirt
+                        <input ng-model="item.type" type="radio" name="type" value="pants"> Pants
+                        <input ng-model="item.type" type="radio" name="type" value="shorts"> Shorts
+                        <input ng-model="item.type" type="radio" name="type" value="skirt"> Skirt
+                        <input ng-model="item.type" type="radio" name="type" value="dress"> Dress
+                        <input ng-model="item.type" type="radio" name="type" value="shoes"> Shoes
+                        <input ng-model="item.type" type="radio" name="type" value="jewelry"> Jewelry
+                        <input ng-model="item.type" type="radio" name="type" value="scarf"> Scarf
+                        <input ng-model="item.type" type="radio" name="type" value="acc"> Other Accessory
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="main-color" class="col-sm-2 control-label">Main Color</label>
                     <div id="main-color">
-                        <input type="radio" name="color" value="red"> Red
-                        <input type="radio" name="color" value="blue"> Blue
-                        <input type="radio" name="color" value="green"> Green
-                        <input type="radio" name="color" value="pink"> Pink
-                        <input type="radio" name="color" value="purple"> Purple
-                        <input type="radio" name="color" value="black"> Black
-                        <input type="radio" name="color" value="white"> White
-                        <input type="radio" name="color" value="grey"> Grey
-                        <input type="radio" name="color" value="brown"> Brown
-                        <input type="radio" name="color" value="yellow"> Yellow
-                        <input type="radio" name="color" value="orange"> Orange
-                        <input type="radio" name="color" value="tan"> Tan
+                        <input ng-model="item.colormain" type="radio" name="color" value="red"> Red
+                        <input ng-model="item.colormain" type="radio" name="color" value="blue"> Blue
+                        <input ng-model="item.colormain" type="radio" name="color" value="green"> Green
+                        <input ng-model="item.colormain" type="radio" name="color" value="pink"> Pink
+                        <input ng-model="item.colormain" type="radio" name="color" value="purple"> Purple
+                        <input ng-model="item.colormain" type="radio" name="color" value="black"> Black
+                        <input ng-model="item.colormain" type="radio" name="color" value="white"> White
+                        <input ng-model="item.colormain" type="radio" name="color" value="grey"> Grey
+                        <input ng-model="item.colormain" type="radio" name="color" value="brown"> Brown
+                        <input ng-model="item.colormain" type="radio" name="color" value="yellow"> Yellow
+                        <input ng-model="item.colormain" type="radio" name="color" value="orange"> Orange
+                        <input ng-model="item.colormain" type="radio" name="color" value="tan"> Tan
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="other-color" class="col-sm-2 control-label">Other Colors</label>
                     <div id="other-color">
-                        <input type="checkbox" name="color" value="red"> Red
-                        <input type="checkbox" name="color" value="blue"> Blue
-                        <input type="checkbox" name="color" value="green"> Green
-                        <input type="checkbox" name="color" value="pink"> Pink
-                        <input type="checkbox" name="color" value="purple"> Purple
-                        <input type="checkbox" name="color" value="black"> Black
-                        <input type="checkbox" name="color" value="white"> White
-                        <input type="checkbox" name="color" value="grey"> Grey
-                        <input type="checkbox" name="color" value="brown"> Brown
-                        <input type="checkbox" name="color" value="yellow"> Yellow
-                        <input type="checkbox" name="color" value="orange"> Orange
-                        <input type="checkbox" name="color" value="tan"> Tan
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="red"> Red
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="blue"> Blue
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="green"> Green
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="pink"> Pink
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="purple"> Purple
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="black"> Black
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="white"> White
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="grey"> Grey
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="brown"> Brown
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="yellow"> Yellow
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="orange"> Orange
+                        <input ng-model="item.colorother" type="checkbox" name="color" value="tan"> Tan
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="pattern" class="col-sm-2 control-label">Pattern</label>
                     <div id="pattern">
-                        <input type="radio" name="pattern" value="none"> None
-                        <input type="radio" name="pattern" value="striped"> Striped
-                        <input type="radio" name="pattern" value="polka"> Polka Dot
-                        <input type="radio" name="pattern" value="plaid"> Plaid
+                        <input ng-model="item.pattern" type="radio" name="pattern" value="none"> None
+                        <input ng-model="item.pattern" type="radio" name="pattern" value="striped"> Striped
+                        <input ng-model="item.pattern" type="radio" name="pattern" value="polka"> Polka Dot
+                        <input ng-model="item.pattern" type="radio" name="pattern" value="plaid"> Plaid
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="warm" class="col-sm-2 control-label">Warmth Rating</label>
                     <div id="warm">
-                        <input type="radio" name="warm" value="na"> Not At All
-                        <input type="radio" name="warm" value="slight"> Cool Breeze Ready
-                        <input type="radio" name="warm" value="med"> Winter is Coming
-                        <input type="radio" name="warm" value="warm"> It's Snow Time
-                        <input type="radio" name="warm" value="very"> Arctic Tundra
+                        <input ng-model="item.warmth" type="radio" name="warm" value="na"> Not At All
+                        <input ng-model="item.warmth" type="radio" name="warm" value="slight"> Cool Breeze Ready
+                        <input ng-model="item.warmth" type="radio" name="warm" value="med"> Winter is Coming
+                        <input ng-model="item.warmth" type="radio" name="warm" value="warm"> It's Snow Time
+                        <input ng-model="item.warmth" type="radio" name="warm" value="very"> Arctic Tundra
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="water" class="col-sm-2 control-label">Waterproof?</label>
                     <div id="water">
-                        <input type="checkbox" name="water" value="true"> Yes
+                        <input ng-model="item.water" type="checkbox" name="water" value="true"> Yes
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="setting" class="col-sm-2 control-label">Setting</label>
                     <div id="setting">
-                        <input type="checkbox" name="color" value="lazy"> Lazy
-                        <input type="checkbox" name="color" value="athletic"> Athletic
-                        <input type="checkbox" name="color" value="casual"> Casual
-                        <input type="checkbox" name="color" value="bizcas"> Business Casual
-                        <input type="checkbox" name="color" value="business"> Business
-                        <input type="checkbox" name="color" value="semi"> Semi-Formal
-                        <input type="checkbox" name="color" value="formal"> Formal
+                        <input ng-model="item.setting" type="checkbox" name="set" value="lazy"> Lazy
+                        <input ng-model="item.setting" type="checkbox" name="set" value="athletic"> Athletic
+                        <input ng-model="item.setting" type="checkbox" name="set" value="casual"> Casual
+                        <input ng-model="item.setting" type="checkbox" name="set" value="bizcas"> Business Casual
+                        <input ng-model="item.setting" type="checkbox" name="set" value="business"> Business
+                        <input ng-model="item.setting" type="checkbox" name="set" value="semi"> Semi-Formal
+                        <input ng-model="item.setting" type="checkbox" name="set" value="formal"> Formal
                     </div>
                 </div>
-                <p>Image Uploading Coming Soon</p>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <a href="#/closet" class="btn btn-default">Add</a>
+                        <input type="file" name="upl" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" ng-click="itemAdded()">
                     </div>
                 </div>
             </form>
