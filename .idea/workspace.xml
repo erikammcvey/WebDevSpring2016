@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b43ed36a-835d-4c5f-964d-81c52b8e21ca" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/css/styles.css" afterPath="$PROJECT_DIR$/public/project/client/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/services/clothing.service.client.js" afterPath="$PROJECT_DIR$/public/project/client/services/clothing.service.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/closet/clean.view.html" afterPath="$PROJECT_DIR$/public/project/client/views/closet/clean.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/closet/closet.controller.js" afterPath="$PROJECT_DIR$/public/project/client/views/closet/closet.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/closet/closet.view.html" afterPath="$PROJECT_DIR$/public/project/client/views/closet/closet.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/closet/dirty.view.html" afterPath="$PROJECT_DIR$/public/project/client/views/closet/dirty.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/server/models/clothing/clothing.model.server.js" afterPath="$PROJECT_DIR$/public/project/server/models/clothing/clothing.model.server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/server/services/clothing.service.server.js" afterPath="$PROJECT_DIR$/public/project/server/services/clothing.service.server.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <ignored path="webdevelopment.iws" />
@@ -72,16 +64,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/client/views/closet/add.view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.147059">
-              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="closet.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/project/client/views/closet/closet.controller.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -102,21 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.1363636">
-              <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clothing.service.server.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="clothing.service.server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/project/server/services/clothing.service.server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.671916">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state vertical-scroll-proportion="-2.8863637">
+              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -125,8 +97,28 @@
       <file leaf-file-name="clothing.model.server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/project/server/models/clothing/clothing.model.server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-47.159092">
-              <caret line="86" column="28" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
+            <state vertical-scroll-proportion="-4.590909">
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/project/client/views/users/login.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.4054055">
+              <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -175,7 +167,6 @@
         <option value="$PROJECT_DIR$/public/project/server/models/user/user.mock.json" />
         <option value="$PROJECT_DIR$/public/project/client/views/header/header.view.html" />
         <option value="$PROJECT_DIR$/public/project/client/config.js" />
-        <option value="$PROJECT_DIR$/public/project/client/views/users/login.controller.js" />
         <option value="$PROJECT_DIR$/public/project/client/views/advertiser/addad.view.html" />
         <option value="$PROJECT_DIR$/public/project/client/views/advertiser/ads.controller.js" />
         <option value="$PROJECT_DIR$/public/project/client/index.html" />
@@ -183,14 +174,15 @@
         <option value="$PROJECT_DIR$/public/project/client/css/styles.css" />
         <option value="$PROJECT_DIR$/public/project/client/views/closet/add.view.html" />
         <option value="$PROJECT_DIR$/public/project/client/app.js" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/public/project/client/views/closet/clean.view.html" />
         <option value="$PROJECT_DIR$/public/project/client/views/closet/closet.controller.js" />
         <option value="$PROJECT_DIR$/public/project/client/services/clothing.service.client.js" />
         <option value="$PROJECT_DIR$/public/project/client/views/closet/closet.view.html" />
         <option value="$PROJECT_DIR$/public/project/client/views/closet/dirty.view.html" />
-        <option value="$PROJECT_DIR$/public/project/server/models/clothing/clothing.model.server.js" />
         <option value="$PROJECT_DIR$/public/project/server/services/clothing.service.server.js" />
+        <option value="$PROJECT_DIR$/public/project/server/models/clothing/clothing.model.server.js" />
+        <option value="$PROJECT_DIR$/public/project/client/views/users/login.controller.js" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -712,7 +704,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4779661" sideWeight="0.49583334" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="1.0" sideWeight="0.49583334" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -961,14 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/client/views/users/login.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/project/client/views/main/main.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1049,14 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1363636">
-          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/project/client/views/closet/add.view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.147059">
@@ -1097,14 +1073,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/server/models/clothing/clothing.model.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-47.159092">
-          <caret line="86" column="28" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/project/client/views/closet/closet.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1123,8 +1091,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/project/server/services/clothing.service.server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.671916">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.8863637">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/server/models/clothing/clothing.model.server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.590909">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/client/views/users/login.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.4054055">
+          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
           <folding />
         </state>
       </provider>
