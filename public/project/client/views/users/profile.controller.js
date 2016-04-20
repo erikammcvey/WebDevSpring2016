@@ -9,7 +9,7 @@
 
         function update(user) {
             UserService
-                .updateUser(user._id, user)
+                .updateUser($rootScope.currentUser._id, user)
                 .then(
                     function (res) {
                         if (res) {

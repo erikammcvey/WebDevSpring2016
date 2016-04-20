@@ -6,6 +6,7 @@
 
     function ClosetController($scope,$rootScope, ClothingService, $location){
         $scope.itemAdded = itemAdded;
+        $scope.search = search;
 
         function init() {
             var userId = $rootScope.currentUser._id;
@@ -43,5 +44,16 @@
         function itemAdded() {
             $location.url('/closet');
         }
+
+        function search(query) {
+            ClothingService.findClothingByName(query)
+                .then(
+                    function(val) {
+                        $rootScope.searchResult = val;
+                        $location.url('/results');
+                    }
+                );
+        }
+
     }
 })();

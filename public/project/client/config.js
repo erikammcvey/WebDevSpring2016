@@ -86,6 +86,12 @@
                     loggedin: checkLoggedIn
                 }
             })
+            .when("/results", {
+                templateUrl: "views/closet/results.view.html",
+                resolve: {
+                    loggedin: checkLoggedIn
+                }
+            })
             .otherwise({
                 redirectTo: "/home"
             });
@@ -119,7 +125,7 @@
 
             else {
                 deferred.reject();
-                $rootScope.errorMessage = "You need to login!";
+                $rootScope.errorMessage = "You need to login, ya muggle!!";
                 $location.url('/login');
             }
         });

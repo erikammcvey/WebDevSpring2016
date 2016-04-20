@@ -3,14 +3,11 @@ var LocalStrategy = require('passport-local').Strategy;
 
 module.exports = function(app, UserModel, passport) {
     var auth = authorized;
-    app.post("/api/project/ad/user", auth, createUserAd);
     app.put("/api/project/ad/user/:userId", auth, updateUserByIdAd);
-    //app.delete("/api/project/ad/user/:userId", auth, deleteUserByIdAd);
     app.get("/api/project/ad/user", auth, getAllUsers);
-    //app.get("/api/project/ad/user/:userId", auth, findUserById);
     app.post("/api/project/login", passport.authenticate('project'), login);
     app.post('/api/project/logout', logout);
-    app.post('/api/project/register', createUser, passport.authenticate('project'), login);
+    app.post('/api/project/register', createUser);
     app.put("/api/project/user/:id", auth, updateUser);
     app.delete('/api/project/user/:id', deleteUser);
     app.get('/api/project/user', getUser);
@@ -95,12 +92,6 @@ module.exports = function(app, UserModel, passport) {
         res.send(200);
     }
 
-    function login(req, res) {
-        var user = req.user;
-        delete user.password;
-        res.json(user);
-    }
-
     function createUser(req, res) {
         UserModel.createUser(req.body)
             .then(
@@ -118,7 +109,7 @@ module.exports = function(app, UserModel, passport) {
         var updates = req.body;
         updates._id = id;
 
-        UserModel.updateUser(updates)
+        UserModel.updateUser(id, updates)
             .then(
                 function(doc) {
                     res.json(doc);
@@ -195,48 +186,6 @@ module.exports = function(app, UserModel, passport) {
             return true
         }
         return false;
-    }
-
-    function createUserAd(req, res) {
-        if (isAd(req.user)) {
-            var newUser = req.body;
-            if (newUser.roles.length === 0) {
-                newUser.roles = ['student'];
-            }
-            UserModel
-                .findUserByUsername(newUser.username)
-                .then(
-                    function(user) {
-                        if (user.length) {
-                            res.json(null);
-                        }
-                        else {
-                            return UserModel.createUser(newUser);
-                        }
-                    },
-                    function(err) {
-                        res.status(400).send(err);
-                    }
-                )
-                .then(
-                    function(doc) {
-                        return UserModel.getAllUsers();
-                    },
-                    function(err) {
-                        res.status(400).send(err);
-                    }
-                )
-                .then(
-                    function(doc) {
-                        res.json(doc);
-                    },
-                    function(err) {
-                        res.status(400).send(err);
-                    }
-                );
-        } else {
-            res.status(403);
-        }
     }
 
     function updateUserByIdAd(req, res) {

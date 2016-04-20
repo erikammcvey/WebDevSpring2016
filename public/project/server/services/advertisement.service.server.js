@@ -9,7 +9,6 @@ module.exports = function(app, AdvertisingModel) {
 
 
     function addAd(req, res) {
-        console.log(req.body);
         AdvertisingModel.addAd(req.body, req.file.filename, req.user._id);
         res.status(204).end();
     }

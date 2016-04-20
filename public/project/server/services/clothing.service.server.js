@@ -8,6 +8,7 @@ module.exports = function(app, ClothingModel) {
     app.post('/api/project/delete', deleteClothing);
     app.get('/api/project/clothing/user/:id/clean/:clean', getClothing);
     app.get('/api/project/all/clothing/:id', getAllClothes);
+    app.get('/api/project/search/clothing/:query', searchClothing);
 
     function addClothing(req, res) {
         ClothingModel.addClothing(req.body, req.file.filename, req.user._id);
@@ -69,6 +70,18 @@ module.exports = function(app, ClothingModel) {
     function getAllClothes(req, res) {
         var userId = req.params.id;
         ClothingModel.allClothingForUser({user_id: userId})
+            .then(
+                function(doc) {
+                    res.json(doc);
+                },
+                function(err) {
+                    res.json(err);
+                }
+            )
+    }
+    function searchClothing(req, res) {
+        var query = req.params.query;
+        ClothingModel.findClothingByName(query)
             .then(
                 function(doc) {
                     res.json(doc);
