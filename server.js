@@ -7,6 +7,7 @@ var cookieParser  = require('cookie-parser');
 var passport = require('passport');
 var mongoose = require('mongoose');
 var connectionString = 'mongodb://localhost/webdevelopment';
+connectionString = process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_APP_NAME;
 
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
     connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
@@ -15,6 +16,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
         process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
         process.env.OPENSHIFT_APP_NAME;
 }
+
 
 var db = mongoose.connect(connectionString);
 
