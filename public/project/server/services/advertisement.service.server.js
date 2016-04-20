@@ -5,8 +5,11 @@ module.exports = function(app, AdvertisingModel) {
     app.put('/api/project/advertisement/:id', updateAdvertisement);
     app.delete('/api/project/advertisement/:id', deleteAd);
     app.get('/api/project/advertisement/:id', getAds);
+    app.get('/api/project/all/advertisement', getAllAds);
+
 
     function addAd(req, res) {
+        console.log(req.body);
         AdvertisingModel.addAd(req.body, req.file.filename, req.user._id);
         res.status(204).end();
     }
@@ -41,6 +44,18 @@ module.exports = function(app, AdvertisingModel) {
     function getAds(req, res) {
         var userId = req.params.id;
         AdvertisingModel.allAdsForUser({user_id: userId})
+            .then(
+                function(doc) {
+                    res.json(doc);
+                },
+                function(err) {
+                    res.json(err);
+                }
+            )
+    }
+
+    function getAllAds(req, res) {
+        AdvertisingModel.getAllAds()
             .then(
                 function(doc) {
                     res.json(doc);

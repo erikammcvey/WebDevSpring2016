@@ -15,6 +15,7 @@
                 <li ng-show="currentUser"><a href="#/profile">{{currentUser.username}}</a></li>
                 <li ng-show="currentUser && currentUser.role === 'user'"><a href="#/today">Today</a></li>
                 <li ng-show="currentUser  && currentUser.role === 'user'"><a href="#/closet">My Closet</a></li>
+                <li ng-show="currentUser  && currentUser.role === 'user'"><a href="#/deals">Daily Deals</a></li>
                 <li ng-show="currentUser  && currentUser.role === 'advertiser'"><a href="#/ads">My Advertisements</a></li>
                 <li ng-show="currentUser"><a ng-click="logout()" href="#/welcome">Logout</a></li>
             </ul>

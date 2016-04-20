@@ -6,7 +6,8 @@ module.exports = function () {
         type: String,
         warmth: String,
         water: Boolean,
-        img: String
+        img: String,
+        link: String
     }, {collection: 'project.advertisement'});
 
     return AdvertisementSchema;

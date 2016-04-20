@@ -9,7 +9,8 @@ module.exports = function(db, mongoose) {
         addAd: addAd,
         allAdsForUser: allAdsForUser,
         updateAd: updateAd,
-        deleteAdById: deleteAdById
+        deleteAdById: deleteAdById,
+        getAllAds: getAllAds
     };
     return api;
 
@@ -29,6 +30,14 @@ module.exports = function(db, mongoose) {
 
     function allAdsForUser(params) {
         return AdvertisementModel.find({user_id: params.user_id})
+            .then(
+                function(ads) {
+                    return ads;
+                });
+    }
+
+    function getAllAds() {
+        return AdvertisementModel.find()
             .then(
                 function(ads) {
                     return ads;

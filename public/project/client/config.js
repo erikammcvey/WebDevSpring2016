@@ -79,6 +79,13 @@
                     loggedin: checkLoggedIn
                 }
             })
+            .when("/deals", {
+                templateUrl: "views/deals/deals.view.html",
+                controller: "DealsController",
+                resolve: {
+                    loggedin: checkLoggedIn
+                }
+            })
             .otherwise({
                 redirectTo: "/home"
             });

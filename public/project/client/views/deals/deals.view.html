@@ -1,0 +1,12 @@
+<div class="container" ng-controller="DealsController">
+    <div class="main">
+        <h1 class="page-header">Your Deals for Today</h1>
+        <div class="clothes row">
+            <div class="col-md-3" ng-repeat="item in deals">
+                <img ng-src={{item.img}}>
+                <br>
+                <a href={{item.link}}>Purchase Here</a>
+            </div>
+        </div>
+    </div>
+</div>
