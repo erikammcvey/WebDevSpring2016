@@ -12,13 +12,12 @@ module.exports = function(db, mongoose) {
         updateClothing: updateClothing,
         deleteClothingById: deleteClothingById,
         findClothingByName: findClothingByName,
-        markClothingClean: markClothingClean,
-        markClothingDirty: markClothingDirty
+        markClothingAs: markClothingAs,
+        someClothingForUser: someClothingForUser
     };
     return api;
 
     function addClothing(item, filepath, user) {
-        console.log('model add clothing');
         var deferred = q.defer();
         item.img = '/project/images/' + filepath;
         item.user_id = user;
@@ -34,24 +33,28 @@ module.exports = function(db, mongoose) {
     }
 
     function allClothingForUser(params) {
-        return ClothingModel.find({user_id: params.user_id, clean: params.clean})
+        return ClothingModel.find({user_id: params.user_id})
             .then(
                 function(clothes) {
                 return clothes;
             });
     }
+    function someClothingForUser(params) {
+        return ClothingModel.find({user_id: params.user_id, clean: params.clean})
+            .then(
+                function(clothes) {
+                    return clothes;
+                });
+    }
 
     function findClothingById(itemId) {
         var deferred = q.defer();
-        ClothingModel.findOne({_id: itemId},
-        function(error, doc) {
-            if (error) {
-                deferred.reject(error);
-            } else {
-                deferred.resolve(doc);
+        return ClothingModel.findOne({_id: itemId}).
+            then(
+            function(item) {
+                return item;
             }
-        });
-        return deferred.promise;
+        );
     }
 
     function updateClothing(clothingId, newItem) {
@@ -79,17 +82,10 @@ module.exports = function(db, mongoose) {
     }
 
     function deleteClothingById(itemId) {
-        var deferred = q.defer();
-        ClothingModel.remove(
-            {_id: itemId},
-            function(error, doc) {
-                if (error) {
-                    deferred.reject(error);
-                } else {
-                    deferred.resolve(doc);
-                }
+        return ClothingModel.findById(itemId)
+            .then(function(doc) {
+                doc.remove();
             });
-        return deferred.promise;
     }
 
     function findClothingByName(name) {
@@ -105,57 +101,16 @@ module.exports = function(db, mongoose) {
         return deferred.promise;
     }
 
-    function markClothingClean(itemId) {
+    function markClothingAs(item, clean) {
         var deferred = q.defer();
-        var item = findClothingById(itemId);
-        item.clean = true;
 
-        ClothingModel.update (
-            {_id: itemId},
-            {$set: item},
-            function (error, doc) {
-                if(error) {
-                    deferred.reject(error);
-                }
-                else {
-                    ClothingModel.findById(userId,
-                        function (err, user) {
-                            if(err) {
-                                deferred.reject(err);
-                            }
-                            else {
-                                deferred.resolve(user);
-                            }
-                        });
-                }
-            });
-        return deferred.promise;
-    }
-
-    function markClothingDirty(itemId) {
-        var deferred = q.defer();
-        var item = findClothingById(itemId);
-        item.clean = false;
-
-        ClothingModel.update (
-            {_id: itemId},
-            {$set: item},
-            function (error, doc) {
-                if(error) {
-                    deferred.reject(error);
-                }
-                else {
-                    ClothingModel.findById(userId,
-                        function (err, user) {
-                            if(err) {
-                                deferred.reject(err);
-                            }
-                            else {
-                                deferred.resolve(user);
-                            }
-                        });
-                }
-            });
+        return ClothingModel.findOneAndUpdate({_id: item}, {clean: clean}, function (error, doc) {
+            if (error) {
+                deferred.reject(error);
+            } else {
+                deferred.resolve(doc);
+            }
+        });
         return deferred.promise;
     }
 };

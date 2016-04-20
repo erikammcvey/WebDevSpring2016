@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var multer = require('multer');
-var upload = multer({ dest: '/project/images/' })
 var session = require('express-session');
 var cookieParser  = require('cookie-parser');
 var passport = require('passport');

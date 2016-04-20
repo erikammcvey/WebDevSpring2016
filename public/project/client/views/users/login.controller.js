@@ -13,7 +13,6 @@
                 .then(
                     function(res){
                         var user = res;
-                        console.log(user);
                         if(user.data.role === "user"){
                             UserService.setUser(user);
                             $location.url("/today");

@@ -2,13 +2,26 @@ var multer = require('multer');
 module.exports = function(app, ClothingModel) {
 
     app.post('/api/project/clothing', multer({ dest: '/Users/mcvey/webdevelopment/public/project/images/'}).single('upl'), addClothing);
+    app.post('/api/project/markdirty', markDirty);
+    app.post('/api/project/markclean', markClean);
     app.put('/api/project/clothing/:id', updateClothing);
-    app.delete('/api/project/clothing/:id', deleteClothing);
+    app.post('/api/project/delete', deleteClothing);
     app.get('/api/project/clothing/user/:id/clean/:clean', getClothing);
-    app.get('/api/project/clothing/:id', getClothingById);
+    app.get('/api/project/all/clothing/:id', getAllClothes);
 
     function addClothing(req, res) {
         ClothingModel.addClothing(req.body, req.file.filename, req.user._id);
+        res.status(204).end();
+    }
+
+    function markDirty(req, res) {
+        var clothes = req.body.selected;
+        ClothingModel.markClothingAs(clothes, false);
+        res.status(204).end();
+    }
+    function markClean(req, res) {
+        var dirtyClothes = req.body.selected;
+        ClothingModel.markClothingAs(dirtyClothes, true);
         res.status(204).end();
     }
 
@@ -28,21 +41,22 @@ module.exports = function(app, ClothingModel) {
     }
 
     function deleteClothing(req, res) {
-        ClothingModel.deleteClothingById(req.params.id)
-            .then(
-                function(doc) {
-                    res.json(doc);
-                },
-                function(err) {
-                    res.json(err);
-                }
-            )
+        ClothingModel.deleteClothingById(req.body.selected);
+        res.status(204).end();
+            //.then(
+            //    function(doc) {
+            //        res.json(doc);
+            //    },
+            //    function(err) {
+            //        res.json(err);
+            //    }
+            //)
     }
 
     function getClothing(req, res) {
         var userId = req.params.id;
         var clean = req.params.clean;
-        ClothingModel.allClothingForUser({user_id: userId, clean: clean})
+        ClothingModel.someClothingForUser({user_id: userId, clean: clean})
             .then(
                 function(doc) {
                     res.json(doc);
@@ -52,10 +66,9 @@ module.exports = function(app, ClothingModel) {
                 }
             )
     }
-
-    function getClothingById(req, res) {
-        var id = req.params.id;
-        ClothingModel.findClothingById(id)
+    function getAllClothes(req, res) {
+        var userId = req.params.id;
+        ClothingModel.allClothingForUser({user_id: userId})
             .then(
                 function(doc) {
                     res.json(doc);

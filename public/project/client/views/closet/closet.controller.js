@@ -4,7 +4,7 @@
         .module("FashionWeatherApp")
         .controller("ClosetController",ClosetController);
 
-    function ClosetController($scope,$rootScope,ClothingService, $location){
+    function ClosetController($scope,$rootScope, ClothingService, $location){
         $scope.itemAdded = itemAdded;
 
         function init() {
@@ -14,7 +14,7 @@
             getDirtyClothes();
 
             function getAllCothesForUser(){
-                ClothingService.getClothingForUser(userId)
+                ClothingService.getAllClothingForUser(userId)
                     .then(
                         function(val) {
                             $scope.clothing = val;

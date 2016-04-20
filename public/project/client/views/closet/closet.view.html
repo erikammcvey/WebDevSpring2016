@@ -1,5 +1,5 @@
-<div class="container" ng-controller="ClosetController">
-    <div class="main">
+<div class="container">
+    <div class="main" ng-controller="ClosetController">
         <h1 class="page-header">My Closet</h1>
         <div class="form-group">
             <div class="text-right">
@@ -11,7 +11,20 @@
             <li role="presentation"><a href="#/clean">Clean</a></li>
             <li role="presentation"><a href="#/dirty">Dirty</a></li>
         </ul>
-        <div class="clothes"><img ng-repeat="item in clothing" ng-src={{item.img}}>
-        </div>
+        <form method="post" action="/api/project/delete">
+            <div class="clothes row">
+                <div ng-repeat="item in clothing" class="col-md-3">
+                    <img ng-src={{item.img}}>
+                    <input type="radio" name="selected" value={{item._id}}>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="submit" value="Delete" ng-click="itemAdded()">
+                </div>
+            </div>
+        </form>
     </div>
 </div>
+</div>
+
